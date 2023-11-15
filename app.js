@@ -9,15 +9,15 @@ const productRoutes = require("./routes/product");
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-//using body parser gor json data
+app.use(bodyParser.urlencoded({ extended: false })); // for default data that submitted form like x-www-form-urlencoded <form>
+//using body parser for json data
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 //using the routes
 app.use(productRoutes);
 
-//Connecting application with database
+// Connecting application with database
 const dbName = "shop";
 MongoClient.connect(
   `mongodb+srv://rameshnagella272:cUqlLG32rL5rsXXt@cluster0.nwhcfn3.mongodb.net/${dbName}?retryWrites=true&w=majority`

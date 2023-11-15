@@ -1,22 +1,22 @@
-const expres = require("express");
+const express = require("express");
 
 const productController = require("../controllers/product");
 
-const router = expres.Router();
+const router = express.Router();
 
 //router to create a product
-router.get("/orders/create", productController.createProduct);
+router.post("/orders/create", productController.createProduct);
 
 //update the product
 router.post("/orders/update", productController.updateProduct);
 
 //list the products
-router.get("/orders/list", productController.fetchProduct);
+router.get("/orders/list/", productController.fetchProducts);
 
 //fetch single product with orderId
-router.post("/order/search", productController.findProduct);
+router.post("/orders/search", productController.getProduct);
 
 //delete the product
-router.delete("orders/delete/:order_id", productController.deleteProduct);
+router.delete("/orders/delete/:order_id", productController.deleteProduct);
 
 module.exports = router;
